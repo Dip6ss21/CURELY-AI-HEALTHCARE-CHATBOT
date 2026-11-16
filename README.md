@@ -1,12 +1,30 @@
+
 # 🩺 CURELY — AI Healthcare Assistant
 
-\<p align="center">
+<p align="center">
+  ![CURELY](https://img.shields.io/badge/CURELY-AI%20HEALTHCARE%20CHATBOT-16A085?style=for-the-badge)
+  ![Python](https://img.shields.io/badge/PYTHON-3.13+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+  ![Flask](https://img.shields.io/badge/FLASK-WEB%20FRAMEWORK-black?style=for-the-badge&logo=flask)
+  ![SQLite](https://img.shields.io/badge/SQLITE-DATABASE-003B57?style=for-the-badge&logo=sqlite)
+  ![Groq](https://img.shields.io/badge/GROQ-AI%20API-F55036?style=for-the-badge)
+  ![AI](https://img.shields.io/badge/AI-GPT--OSS%20120B-8A2BE2?style=for-the-badge)
+</p>
 
-\<img src="[https://img.shields.io/badge/CURELY-AI%20HEALTHCARE%20CHATBOT-16A085?style=for-the-badge](https://img.shields.io/badge/CURELY-AI%20HEALTHCARE%20CHATBOT-16A085?style=for-the-badge)" /> \<img src="[https://img.shields.io/badge/PYTHON-3.13+-3776AB?style=for-the-badge&logo=python&logoColor=white](https://img.shields.io/badge/PYTHON-3.13+-3776AB?style=for-the-badge\&logo=python\&logoColor=white)" /> \<img src="[https://img.shields.io/badge/FLASK-WEB%20FRAMEWORK-black?style=for-the-badge&logo=flask](https://img.shields.io/badge/FLASK-WEB%20FRAMEWORK-black?style=for-the-badge\&logo=flask)" /> \<img src="[https://img.shields.io/badge/SQLITE-DATABASE-003B57?style=for-the-badge&logo=sqlite](https://img.shields.io/badge/SQLITE-DATABASE-003B57?style=for-the-badge\&logo=sqlite)" /> \<img src="[https://img.shields.io/badge/GROQ-AI%20API-F55036?style=for-the-badge](https://img.shields.io/badge/GROQ-AI%20API-F55036?style=for-the-badge)" /> \<img src="[https://img.shields.io/badge/AI-GPT--OSS%20120B-8A2BE2?style=for-the-badge](https://img.shields.io/badge/AI-GPT--OSS%20120B-8A2BE2?style=for-the-badge)" />
+**An AI-powered healthcare chatbot built using Python, Flask, SQLite and Groq API.**
 
-\</p>
+*Your intelligent companion for general health questions, symptom guidance, and everyday wellness.*
 
-\<p align="center">   \<b>An AI-powered healthcare chatbot built using Python, Flask, SQLite and Groq API.\</b>   \<br>\<br>   Your intelligent companion for general health questions, symptom guidance, and everyday wellness. \</p>
+---
+
+## 📋 Table of Contents
+
+- [Overview](#-overview)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Installation & Setup](#-installation--setup)
+- [Future Improvements](#-future-improvements)
+- [Author](#-author)
 
 ---
 
