@@ -249,7 +249,7 @@ This project demonstrates the practical integration of:
 
 ## 👩‍💻 Author
 
-**Dip6ss21**
+**Diptimayee Das**
 
 AI Healthcare Assistant Project — CURELY
 
