@@ -1,0 +1,743 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CURELY - AI Healthcare Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">✚</div>
+            <h2>CURELY</h2>
+        </div>
+
+        <p class="sidebar-label">MENU</p>
+
+        <nav>
+
+            <a href="#" class="nav-item active" id="home-link">
+                <span>⌂</span> Home
+            </a>
+
+            <a href="#" class="nav-item" id="history-link">
+                <span>▤</span> Chat History
+            </a>
+
+            <a href="#" class="nav-item" id="health-tips-link">
+                <span>♡</span> Health Tips
+            </a>
+
+            <a href="#" class="nav-item" id="emergency-link">
+                <span>🚨</span> Emergency Help
+            </a>
+
+            <a href="#symptom-checker" class="nav-item" id="symptom-link">
+                <span>✚</span> Symptom Guide
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="help-card">
+                <span>💚</span>
+                <h4>Need help?</h4>
+                <p>CURELY is here to support your health journey.</p>
+            </div>
+
+            <p class="sidebar-footer">CURELY v1.0</p>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div>
+                <p class="top-label">YOUR PERSONAL HEALTH ASSISTANT</p>
+                <h3>Welcome to CURELY</h3>
+            </div>
+
+            <!-- USER PROFILE -->
+            <div class="topbar-user">
+
+                <div class="profile" id="profile-area">
+                    <div class="profile-icon">U</div>
+                    <span id="profile-name">Guest User</span>
+                </div>
+
+                <div class="auth-buttons" id="auth-buttons">
+
+                    <button type="button" id="login-open-btn">
+                        Login
+                    </button>
+
+                    <button type="button" id="signup-open-btn">
+                        Sign Up
+                    </button>
+
+                </div>
+
+                <button type="button" id="logout-btn" style="display: none;">
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- CHAT AREA -->
+        <section class="chat-section">
+
+            <div id="chat-messages" class="chat-messages"></div>
+
+            <!-- WELCOME SCREEN -->
+            <div class="welcome-content">
+
+                <div class="welcome-icon">✚</div>
+
+                <p class="greeting">HELLO! I'M CURELY</p>
+
+                <h1>
+                    Your health,<br>
+                    <span>our priority.</span>
+                </h1>
+
+                <p class="welcome-description">
+                    I'm your AI healthcare assistant.
+                    Ask me general health questions, explore
+                    wellness tips, and learn more about your health.
+                </p>
+
+
+                <!-- CLICKABLE WELCOME CARDS -->
+                <div class="suggestion-grid">
+
+                    <button
+                        type="button"
+                        class="suggestion-card"
+                        data-action="health"
+                    >
+                        <span>🩺</span>
+                        <h4>Health Questions</h4>
+                        <p>Ask general health-related questions.</p>
+                        <small>Click to start chatting →</small>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="suggestion-card"
+                        data-action="wellness"
+                    >
+                        <span>🌿</span>
+                        <h4>Wellness Tips</h4>
+                        <p>Explore healthy lifestyle habits.</p>
+                        <small>Explore tips →</small>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="suggestion-card"
+                        data-action="symptoms"
+                    >
+                        <span>💗</span>
+                        <h4>Symptom Guide</h4>
+                        <p>Understand common symptoms.</p>
+                        <small>Check symptoms →</small>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="suggestion-card"
+                        data-action="anything"
+                    >
+                        <span>💬</span>
+                        <h4>Ask Anything</h4>
+                        <p>Start a conversation with CURELY.</p>
+                        <small>Ask CURELY →</small>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MESSAGE INPUT -->
+            <div class="chat-input-area">
+
+                <div class="chat-input-box">
+
+                    <input
+                        type="text"
+                        placeholder="Ask CURELY anything about your health..."
+                        id="user-input"
+                    >
+
+                    <button id="send-btn" type="button">
+                        ➤
+                    </button>
+
+                </div>
+
+                <p class="disclaimer">
+                    CURELY provides general health information,
+                    not medical diagnosis or treatment.
+                    Consult a qualified healthcare professional
+                    for medical advice.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SYMPTOM CHECKER SECTION -->
+        <section id="symptom-checker" class="symptom-checker">
+
+            <div class="symptom-header">
+
+                <p class="greeting">YOUR HEALTH MATTERS</p>
+
+                <h2>Symptom Checker</h2>
+
+                <p>
+                    Select the symptoms you're experiencing
+                    to receive general health information.
+                </p>
+
+            </div>
+
+
+            <div class="symptom-form">
+
+                <h3>1. What symptoms are you experiencing?</h3>
+
+                <div class="symptom-options">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="symptoms"
+                            value="Headache"
+                        >
+                        Headache
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="symptoms"
+                            value="Fever"
+                        >
+                        Fever
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="symptoms"
+                            value="Dizziness"
+                        >
+                        Dizziness
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="symptoms"
+                            value="Cough"
+                        >
+                        Cough
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="symptoms"
+                            value="Fatigue"
+                        >
+                        Fatigue
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="symptoms"
+                            value="Nausea"
+                        >
+                        Nausea
+                    </label>
+
+                </div>
+
+
+                <h3>2. How long have you had these symptoms?</h3>
+
+                <select id="symptom-duration">
+
+                    <option value="">Select duration</option>
+                    <option value="Less than a day">Less than a day</option>
+                    <option value="1-3 days">1-3 days</option>
+                    <option value="4-7 days">4-7 days</option>
+                    <option value="More than a week">More than a week</option>
+
+                </select>
+
+
+                <h3>3. How severe are your symptoms?</h3>
+
+                <select id="symptom-severity">
+
+                    <option value="">Select severity</option>
+                    <option value="Mild">Mild</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Severe">Severe</option>
+
+                </select>
+
+
+                <button id="check-symptoms-btn" type="button">
+                    Check My Symptoms
+                </button>
+
+
+                <p class="medical-disclaimer">
+                    CURELY provides general health information,
+                    not a medical diagnosis. Consult a qualified
+                    healthcare professional for medical advice.
+                    Seek emergency help for potentially
+                    life-threatening symptoms.
+                </p>
+
+                <div id="symptom-result"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HEALTH TIPS SECTION -->
+        <section id="health-tips-section" class="health-tips-section">
+
+            <div class="health-tips-header">
+
+                <p class="greeting">LIVE A HEALTHIER LIFE</p>
+
+                <h2>Health & Wellness Tips 🌿</h2>
+
+                <p>Small healthy habits can make a big difference.</p>
+
+            </div>
+
+
+            <div class="health-categories">
+
+                <button class="category-btn active" data-category="all">
+                    All Tips
+                </button>
+
+                <button class="category-btn" data-category="nutrition">
+                    🥗 Nutrition
+                </button>
+
+                <button class="category-btn" data-category="fitness">
+                    🏃 Fitness
+                </button>
+
+                <button class="category-btn" data-category="sleep">
+                    😴 Sleep
+                </button>
+
+                <button class="category-btn" data-category="mental">
+                    🧘 Mental Wellness
+                </button>
+
+                <button class="category-btn" data-category="hydration">
+                    💧 Hydration
+                </button>
+
+            </div>
+
+
+            <div class="health-tips-grid" id="health-tips-grid">
+
+                <article class="health-tip-card" data-category="nutrition">
+
+                    <div class="tip-icon">🥗</div>
+                    <span class="tip-category">NUTRITION</span>
+                    <h3>Eat a Balanced Diet</h3>
+
+                    <p>
+                        Include fruits, vegetables, whole grains and
+                        protein sources in your daily meals.
+                    </p>
+
+                    <span class="tip-tag">Healthy Eating</span>
+
+                </article>
+
+
+                <article class="health-tip-card" data-category="fitness">
+
+                    <div class="tip-icon">🏃</div>
+                    <span class="tip-category">FITNESS</span>
+                    <h3>Stay Physically Active</h3>
+
+                    <p>
+                        Try regular walking, cycling or another activity
+                        that suits your abilities.
+                    </p>
+
+                    <span class="tip-tag">Daily Movement</span>
+
+                </article>
+
+
+                <article class="health-tip-card" data-category="sleep">
+
+                    <div class="tip-icon">😴</div>
+                    <span class="tip-category">SLEEP</span>
+                    <h3>Follow a Sleep Routine</h3>
+
+                    <p>
+                        Try to sleep and wake up at consistent times
+                        to support healthy sleep habits.
+                    </p>
+
+                    <span class="tip-tag">Better Sleep</span>
+
+                </article>
+
+
+                <article class="health-tip-card" data-category="mental">
+
+                    <div class="tip-icon">🧘</div>
+                    <span class="tip-category">MENTAL WELLNESS</span>
+                    <h3>Take Time to Relax</h3>
+
+                    <p>
+                        Take short breaks, practise slow breathing
+                        and make time for activities you enjoy.
+                    </p>
+
+                    <span class="tip-tag">Stress Management</span>
+
+                </article>
+
+
+                <article class="health-tip-card" data-category="hydration">
+
+                    <div class="tip-icon">💧</div>
+                    <span class="tip-category">HYDRATION</span>
+                    <h3>Stay Hydrated</h3>
+
+                    <p>
+                        Drink water regularly throughout the day.
+                        Your needs may vary with activity and weather.
+                    </p>
+
+                    <span class="tip-tag">Water & Wellness</span>
+
+                </article>
+
+
+                <article class="health-tip-card" data-category="nutrition">
+
+                    <div class="tip-icon">🍎</div>
+                    <span class="tip-category">NUTRITION</span>
+                    <h3>Choose Healthy Snacks</h3>
+
+                    <p>
+                        Try fruit, nuts or other nutritious snacks
+                        as part of a balanced eating pattern.
+                    </p>
+
+                    <span class="tip-tag">Smart Choices</span>
+
+                </article>
+
+            </div>
+
+
+            <p class="health-tips-disclaimer">
+                These tips are for general wellness education only.
+                They do not replace personalised medical advice.
+            </p>
+
+        </section>
+
+
+        <!-- EMERGENCY HELPLINE SECTION -->
+        <section id="emergency-section" class="emergency-section">
+
+            <div class="emergency-header">
+
+                <h2>🚨 Emergency Medical Guidance</h2>
+
+                <p>
+                    Immediate emergency assistance and important
+                    helpline contacts for India.
+                </p>
+
+
+                <div class="main-emergency-contact">
+
+                    <span>National Emergency Number</span>
+
+                    <h1>112</h1>
+
+                    <p>
+                        Police • Fire • Emergency Medical Assistance
+                    </p>
+
+                    <a href="tel:112" class="emergency-call-button">
+                        📞 CALL 112 NOW
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="emergency-warning">
+
+                <strong>⚠ IMPORTANT EMERGENCY NOTICE</strong>
+
+                <p>
+                    If someone is experiencing a life-threatening
+                    emergency, contact emergency services immediately.
+                    Do not wait for an online response from CURELY.
+                    Follow instructions from emergency professionals.
+                </p>
+
+            </div>
+
+
+            <div class="emergency-contacts">
+
+                <h3>☎ Additional Emergency Contacts</h3>
+
+                <p class="emergency-subtitle">
+                    Other important helpline numbers in India.
+                </p>
+
+
+                <div class="emergency-grid">
+
+                    <a href="tel:102" class="emergency-card">
+
+                        <span>🚑</span>
+                        <h3>102</h3>
+                        <strong>Ambulance Service</strong>
+
+                        <p>
+                            National Ambulance Service.
+                            Availability may vary.
+                        </p>
+
+                    </a>
+
+
+                    <a href="tel:108" class="emergency-card">
+
+                        <span>🚑</span>
+                        <h3>108</h3>
+                        <strong>Emergency Ambulance</strong>
+
+                        <p>
+                            Ambulance assistance.
+                            Availability varies by state.
+                        </p>
+
+                    </a>
+
+
+                    <a href="tel:104" class="emergency-card">
+
+                        <span>🏥</span>
+                        <h3>104</h3>
+                        <strong>Health Helpline</strong>
+
+                        <p>
+                            State health assistance.
+                            Availability varies by state.
+                        </p>
+
+                    </a>
+
+
+                    <a href="tel:1091" class="emergency-card">
+
+                        <span>👩</span>
+                        <h3>1091</h3>
+                        <strong>Women Helpline</strong>
+
+                        <p>
+                            Assistance for women in distress.
+                            Check local availability.
+                        </p>
+
+                    </a>
+
+
+                    <a href="tel:1098" class="emergency-card">
+
+                        <span>🧒</span>
+                        <h3>1098</h3>
+                        <strong>Child Helpline</strong>
+
+                        <p>
+                            Assistance for children in need
+                            of care and protection.
+                        </p>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <p class="emergency-disclaimer">
+
+                Emergency numbers and service availability can vary
+                by state and location. In an immediate emergency in
+                India, call 112.
+
+            </p>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================
+     LOGIN AND SIGN UP MODAL
+===================================== -->
+
+<div id="auth-modal" class="auth-modal" style="display: none;">
+
+    <div class="auth-box">
+
+        <button type="button" id="auth-close-btn" class="auth-close">
+            &times;
+        </button>
+
+
+        <div class="auth-heading">
+
+            <h2 id="auth-title">Welcome to CURELY</h2>
+
+            <p id="auth-subtitle">Login to your account</p>
+
+        </div>
+
+
+        <!-- SIGN UP FORM -->
+        <form id="signup-form" style="display: none;">
+
+            <input
+                type="text"
+                id="signup-name"
+                placeholder="Full Name"
+                maxlength="80"
+                required
+            >
+
+            <input
+                type="email"
+                id="signup-email"
+                placeholder="Email Address"
+                required
+            >
+
+            <input
+                type="password"
+                id="signup-password"
+                placeholder="Password (minimum 8 characters)"
+                minlength="8"
+                required
+            >
+
+            <button type="submit">
+                Create Account
+            </button>
+
+            <p>
+                Already have an account?
+                <a href="#" id="show-login-link">Login</a>
+            </p>
+
+        </form>
+
+
+        <!-- LOGIN FORM -->
+        <form id="login-form">
+
+            <input
+                type="email"
+                id="login-email"
+                placeholder="Email Address"
+                required
+            >
+
+            <input
+                type="password"
+                id="login-password"
+                placeholder="Password"
+                required
+            >
+
+            <button type="submit">
+                Login
+            </button>
+
+            <p>
+                Don't have an account?
+                <a href="#" id="show-signup-link">Sign Up</a>
+            </p>
+
+        </form>
+
+
+        <p id="auth-message"></p>
+
+    </div>
+
+</div>
+
+
+<!-- JAVASCRIPT FILES -->
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
