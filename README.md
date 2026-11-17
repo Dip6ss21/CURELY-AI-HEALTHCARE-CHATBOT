@@ -250,9 +250,3 @@ This project demonstrates the practical integration of:
 ## 👩‍💻 Author
 
 **Diptimayee Das**
-
-AI Healthcare Assistant Project — CURELY
-
----
-
-\<p align="center">   \<b>Built with ❤️ using Python, Flask, SQLite, and Groq AI.\</b> \</p>
